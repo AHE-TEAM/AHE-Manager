@@ -5,58 +5,714 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0a100e">
 <meta name="description" content="AHE MANAGER — Android dosya yöneticisi ve APK düzenleme araçları. Dosyalarını yönet, APK'ları incele ve düzenle.">
-<title>AHE MANAGER — Android Dosya Yöneticisi</title>
+<title>AHE MANAGER 1.1.2 — Android Dosya Yöneticisi</title>
+
 <style>
-:root{color-scheme:dark;--bg:#080d0b;--panel:#101915;--panel2:#14221b;--text:#eff8f1;--muted:#9aada1;--line:#ffffff16;--green:#9be36b;--green2:#c5f5a1;--shadow:0 24px 80px #0008}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 78% -8%,#8bd85b22,transparent 36%),radial-gradient(ellipse at 0 45%,#1e604322,transparent 35%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.65}a{color:inherit;text-decoration:none}.wrap{width:min(1140px,calc(100% - 40px));margin:auto}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:.07em}.logo{width:40px;height:40px;border-radius:13px;background:linear-gradient(145deg,#d1ffa8,#65b847);display:grid;place-items:center;color:#10200e;font-size:20px;font-weight:950;box-shadow:0 8px 26px #8fd45b35}.navlinks{display:flex;gap:26px;color:var(--muted);font-size:14px}.navlinks a:hover{color:var(--green2)}.hero{padding:88px 0 65px;display:grid;grid-template-columns:1.12fr .88fr;gap:48px;align-items:center}.eyebrow{display:inline-flex;gap:9px;align-items:center;border:1px solid #9be36b44;background:#9be36b10;color:var(--green2);padding:7px 13px;border-radius:99px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 13px var(--green)}h1{font-size:clamp(46px,7vw,78px);line-height:1.01;letter-spacing:-.06em;margin:22px 0}h1 span{color:var(--green)}.lead{max-width:600px;color:var(--muted);font-size:18px;line-height:1.8}.actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:28px}.btn{min-height:52px;padding:0 22px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:850;font-size:14px;transition:.2s;cursor:pointer}.btn:hover{transform:translateY(-2px)}.primary{background:var(--green);color:#10200d;box-shadow:0 12px 30px #8fd45b2a}.primary:hover{background:var(--green2)}.secondary{border:1px solid var(--line);background:#ffffff08}.secondary:hover{border-color:#9be36b70;background:#9be36b0d}.fine{font-size:12px;color:#82958a;margin-top:13px}.visual{min-height:390px;display:grid;place-items:center;position:relative}.glow{position:absolute;width:310px;height:310px;border-radius:50%;background:#8fd45b25;filter:blur(60px)}.device{position:relative;width:min(330px,88%);padding:12px;border:1px solid #b7d7bf40;border-radius:34px;background:linear-gradient(145deg,#1c2b23,#0b120f);box-shadow:var(--shadow);transform:rotate(3deg)}.screen{border-radius:25px;background:linear-gradient(160deg,#17251e,#0c1210);padding:20px 17px;min-height:370px;overflow:hidden}.screenbar{display:flex;justify-content:space-between;color:#a9b9ae;font-size:11px}.appname{font-size:21px;font-weight:950;margin:28px 0 2px}.appsub{font-size:10px;color:var(--muted)}.path{margin-top:20px;padding:10px 12px;border-radius:10px;background:#ffffff0a;border:1px solid #ffffff12;font-size:10px;color:#c6d5ca}.filelist{display:grid;gap:8px;margin-top:12px}.file{display:flex;align-items:center;gap:10px;padding:10px;border-radius:11px;background:#ffffff08;border:1px solid #ffffff0a;font-size:11px}.file em{font-style:normal;font-size:17px}.file small{display:block;color:var(--muted);font-size:9px}.screenfoot{margin-top:15px;padding:11px;border-radius:11px;background:#9be36b19;color:var(--green2);font-size:10px;text-align:center;font-weight:800}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 60px}.stat{padding:19px;border:1px solid var(--line);border-radius:16px;background:#ffffff05;text-align:center}.stat strong{display:block;color:var(--green2);font-size:18px}.stat span{font-size:12px;color:var(--muted)}section{padding:28px 0 70px}.head{text-align:center;max-width:700px;margin:0 auto 32px}.kicker{font-size:12px;color:var(--green);font-weight:850;letter-spacing:.15em;text-transform:uppercase}.head h2{font-size:clamp(29px,4vw,43px);letter-spacing:-.045em;margin:8px 0}.head p{color:var(--muted);margin:0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.feature{padding:22px;border-radius:18px;border:1px solid var(--line);background:linear-gradient(145deg,#14211b,#0d1411);min-height:180px;transition:.2s}.feature:hover{transform:translateY(-4px);border-color:#9be36b55}.ico{width:43px;height:43px;border-radius:13px;background:#9be36b17;color:var(--green2);display:grid;place-items:center;font-size:21px}.feature h3{font-size:16px;margin:14px 0 5px}.feature p{font-size:13px;color:var(--muted);margin:0}.wide{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}.info{padding:25px;border:1px solid var(--line);border-radius:18px;background:#ffffff05}.info h3{margin:0 0 8px}.info p{margin:0;color:var(--muted);font-size:14px}.ticks{display:grid;gap:9px;margin-top:16px}.tick{display:flex;gap:10px;color:#c6d5ca;font-size:13px}.tick b{color:var(--green)}.download{padding:42px;border:1px solid #9be36b45;border-radius:25px;background:radial-gradient(ellipse at 90% 0%,#9be36b20,transparent 45%),linear-gradient(140deg,#14221b,#0d1411);display:flex;align-items:center;justify-content:space-between;gap:24px}.download h2{font-size:clamp(27px,4vw,39px);letter-spacing:-.04em;margin:0 0 8px}.download p{color:var(--muted);margin:0}.download .actions{margin:0;flex-shrink:0}.note{font-size:12px;color:#82958a;margin-top:13px}footer{padding:30px 0 38px;border-top:1px solid var(--line);color:#82958a;font-size:12px}.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.foot b{color:#c9d8ce;letter-spacing:.08em}
-@media(max-width:850px){.hero{grid-template-columns:1fr;padding:62px 0 45px;gap:18px}.visual{min-height:360px}.grid{grid-template-columns:repeat(2,1fr)}.wide{grid-template-columns:1fr}.download{align-items:flex-start;flex-direction:column}.download .actions{margin-top:5px}}
-@media(max-width:520px){.wrap{width:calc(100% - 28px)}.nav{height:65px}.navlinks{gap:13px;font-size:12px}.navlinks a:first-child{display:none}.hero{padding-top:48px}h1{font-size:49px}.lead{font-size:15px}.visual{min-height:340px}.device{width:270px}.screen{min-height:350px}.stats{gap:7px;margin-bottom:42px}.stat{padding:14px 5px}.stat strong{font-size:16px}.stat span{font-size:10px}.grid{gap:9px}.feature{padding:16px;min-height:180px}.feature h3{font-size:14px}.feature p{font-size:12px}.download{padding:25px 20px}.actions .btn{width:100%}.foot{flex-direction:column}}
+:root{
+color-scheme:dark;
+--bg:#080d0b;
+--panel:#101915;
+--panel2:#14221b;
+--text:#eff8f1;
+--muted:#9aada1;
+--line:#ffffff16;
+--green:#9be36b;
+--green2:#c5f5a1;
+--shadow:0 24px 80px #0008;
+--apk:url("https://github.com/AHE-TEAM/AHE-Manager/releases/download/1.1.2/AHE.MANAGER_1.1.2.apk");
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+margin:0;
+background:
+radial-gradient(ellipse at 78% -8%,#8bd85b22,transparent 36%),
+radial-gradient(ellipse at 0 45%,#1e604322,transparent 35%),
+var(--bg);
+color:var(--text);
+font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+line-height:1.65;
+}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1140px,calc(100% - 40px));margin:auto}
+
+.nav{
+height:76px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+border-bottom:1px solid var(--line);
+}
+.brand{
+display:flex;
+align-items:center;
+gap:11px;
+font-weight:900;
+letter-spacing:.07em;
+}
+.logo{
+width:40px;
+height:40px;
+border-radius:13px;
+background:linear-gradient(145deg,#d1ffa8,#65b847);
+display:grid;
+place-items:center;
+color:#10200e;
+font-size:20px;
+font-weight:950;
+box-shadow:0 8px 26px #8fd45b35;
+}
+.navlinks{
+display:flex;
+gap:26px;
+color:var(--muted);
+font-size:14px;
+}
+.navlinks a:hover{color:var(--green2)}
+
+.hero{
+padding:88px 0 65px;
+display:grid;
+grid-template-columns:1.12fr .88fr;
+gap:48px;
+align-items:center;
+}
+.eyebrow{
+display:inline-flex;
+gap:9px;
+align-items:center;
+border:1px solid #9be36b44;
+background:#9be36b10;
+color:var(--green2);
+padding:7px 13px;
+border-radius:99px;
+font-size:12px;
+font-weight:800;
+letter-spacing:.08em;
+text-transform:uppercase;
+}
+.dot{
+width:7px;
+height:7px;
+border-radius:50%;
+background:var(--green);
+box-shadow:0 0 13px var(--green);
+}
+h1{
+font-size:clamp(46px,7vw,78px);
+line-height:1.01;
+letter-spacing:-.06em;
+margin:22px 0;
+}
+h1 span{color:var(--green)}
+.lead{
+max-width:600px;
+color:var(--muted);
+font-size:18px;
+line-height:1.8;
+}
+.actions{
+display:flex;
+gap:13px;
+flex-wrap:wrap;
+margin-top:28px;
+}
+.btn{
+min-height:52px;
+padding:0 22px;
+border-radius:14px;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+font-weight:850;
+font-size:14px;
+transition:.2s;
+cursor:pointer;
+}
+.btn:hover{transform:translateY(-2px)}
+.primary{
+background:var(--green);
+color:#10200d;
+box-shadow:0 12px 30px #8fd45b2a;
+}
+.primary:hover{background:var(--green2)}
+.secondary{
+border:1px solid var(--line);
+background:#ffffff08;
+}
+.secondary:hover{
+border-color:#9be36b70;
+background:#9be36b0d;
+}
+.fine{
+font-size:12px;
+color:#82958a;
+margin-top:13px;
+}
+
+.visual{
+min-height:390px;
+display:grid;
+place-items:center;
+position:relative;
+}
+.glow{
+position:absolute;
+width:310px;
+height:310px;
+border-radius:50%;
+background:#8fd45b25;
+filter:blur(60px);
+}
+.device{
+position:relative;
+width:min(330px,88%);
+padding:12px;
+border:1px solid #b7d7bf40;
+border-radius:34px;
+background:linear-gradient(145deg,#1c2b23,#0b120f);
+box-shadow:var(--shadow);
+transform:rotate(3deg);
+}
+.screen{
+border-radius:25px;
+background:linear-gradient(160deg,#17251e,#0c1210);
+padding:20px 17px;
+min-height:370px;
+overflow:hidden;
+}
+.screenbar{
+display:flex;
+justify-content:space-between;
+color:#a9b9ae;
+font-size:11px;
+}
+.appname{
+font-size:21px;
+font-weight:950;
+margin:28px 0 2px;
+}
+.appsub{font-size:10px;color:var(--muted)}
+.path{
+margin-top:20px;
+padding:10px 12px;
+border-radius:10px;
+background:#ffffff0a;
+border:1px solid #ffffff12;
+font-size:10px;
+color:#c6d5ca;
+}
+.filelist{
+display:grid;
+gap:8px;
+margin-top:12px;
+}
+.file{
+display:flex;
+align-items:center;
+gap:10px;
+padding:10px;
+border-radius:11px;
+background:#ffffff08;
+border:1px solid #ffffff0a;
+font-size:11px;
+}
+.file em{font-style:normal;font-size:17px}
+.file small{
+display:block;
+color:var(--muted);
+font-size:9px;
+}
+.screenfoot{
+margin-top:15px;
+padding:11px;
+border-radius:11px;
+background:#9be36b19;
+color:var(--green2);
+font-size:10px;
+text-align:center;
+font-weight:800;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+margin:0 0 60px;
+}
+.stat{
+padding:19px;
+border:1px solid var(--line);
+border-radius:16px;
+background:#ffffff05;
+text-align:center;
+}
+.stat strong{
+display:block;
+color:var(--green2);
+font-size:18px;
+}
+.stat span{font-size:12px;color:var(--muted)}
+
+section{padding:28px 0 70px}
+.head{
+text-align:center;
+max-width:700px;
+margin:0 auto 32px;
+}
+.kicker{
+font-size:12px;
+color:var(--green);
+font-weight:850;
+letter-spacing:.15em;
+text-transform:uppercase;
+}
+.head h2{
+font-size:clamp(29px,4vw,43px);
+letter-spacing:-.045em;
+margin:8px 0;
+}
+.head p{color:var(--muted);margin:0}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px;
+}
+.feature{
+padding:22px;
+border-radius:18px;
+border:1px solid var(--line);
+background:linear-gradient(145deg,#14211b,#0d1411);
+min-height:180px;
+transition:.2s;
+}
+.feature:hover{
+transform:translateY(-4px);
+border-color:#9be36b55;
+}
+.ico{
+width:43px;
+height:43px;
+border-radius:13px;
+background:#9be36b17;
+color:var(--green2);
+display:grid;
+place-items:center;
+font-size:21px;
+}
+.feature h3{font-size:16px;margin:14px 0 5px}
+.feature p{font-size:13px;color:var(--muted);margin:0}
+
+.wide{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:16px;
+margin-top:18px;
+}
+.info{
+padding:25px;
+border:1px solid var(--line);
+border-radius:18px;
+background:#ffffff05;
+}
+.info h3{margin:0 0 8px}
+.info p{margin:0;color:var(--muted);font-size:14px}
+.ticks{
+display:grid;
+gap:9px;
+margin-top:16px;
+}
+.tick{
+display:flex;
+gap:10px;
+color:#c6d5ca;
+font-size:13px;
+}
+.tick b{color:var(--green)}
+
+.download{
+padding:42px;
+border:1px solid #9be36b45;
+border-radius:25px;
+background:
+radial-gradient(ellipse at 90% 0%,#9be36b20,transparent 45%),
+linear-gradient(140deg,#14221b,#0d1411);
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:24px;
+}
+.download h2{
+font-size:clamp(27px,4vw,39px);
+letter-spacing:-.04em;
+margin:0 0 8px;
+}
+.download p{color:var(--muted);margin:0}
+.download .actions{margin:0;flex-shrink:0}
+.note{
+font-size:12px;
+color:#82958a;
+margin-top:13px;
+}
+
+footer{
+padding:30px 0 38px;
+border-top:1px solid var(--line);
+color:#82958a;
+font-size:12px;
+}
+.foot{
+display:flex;
+justify-content:space-between;
+gap:15px;
+flex-wrap:wrap;
+}
+.foot b{color:#c9d8ce;letter-spacing:.08em}
+
+@media(max-width:850px){
+.hero{
+grid-template-columns:1fr;
+padding:62px 0 45px;
+gap:18px;
+}
+.visual{min-height:360px}
+.grid{grid-template-columns:repeat(2,1fr)}
+.wide{grid-template-columns:1fr}
+.download{
+align-items:flex-start;
+flex-direction:column;
+}
+.download .actions{margin-top:5px}
+}
+
+@media(max-width:520px){
+.wrap{width:calc(100% - 28px)}
+.nav{height:65px}
+.navlinks{gap:13px;font-size:12px}
+.navlinks a:first-child{display:none}
+.hero{padding-top:48px}
+h1{font-size:49px}
+.lead{font-size:15px}
+.visual{min-height:340px}
+.device{width:270px}
+.screen{min-height:350px}
+.stats{gap:7px;margin-bottom:42px}
+.stat{padding:14px 5px}
+.stat strong{font-size:16px}
+.stat span{font-size:10px}
+.grid{gap:9px}
+.feature{padding:16px;min-height:180px}
+.feature h3{font-size:14px}
+.feature p{font-size:12px}
+.download{padding:25px 20px}
+.actions .btn{width:100%}
+.foot{flex-direction:column}
+}
 </style>
 </head>
+
 <body>
+
 <header class="wrap nav">
-<a class="brand" href="#top"><span class="logo">A</span><span>AHE <span style="color:var(--green)">MANAGER</span></span></a>
-<nav class="navlinks"><a href="#ozellikler">Özellikler</a><a href="#araclar">Araçlar</a><a href="#hakkinda">Hakkında</a><a href="#indir">İndir</a></nav>
+<a class="brand" href="#top">
+<span class="logo">A</span>
+<span>AHE <span style="color:var(--green)">MANAGER</span></span>
+</a>
+
+<nav class="navlinks">
+<a href="#ozellikler">Özellikler</a>
+<a href="#araclar">Araçlar</a>
+<a href="#hakkinda">Hakkında</a>
+<a href="#indir">İndir</a>
+</nav>
 </header>
+
 <main id="top" class="wrap">
+
 <div class="hero">
+
 <div>
-<span class="eyebrow"><span class="dot"></span> Android dosya yöneticisi & APK araç seti</span>
+<span class="eyebrow">
+<span class="dot"></span>
+Android dosya yöneticisi & APK araç seti
+</span>
+
 <h1>Dosyalarını<br><span>yönet.</span><br>APK'larını düzenle.</h1>
-<p class="lead">AHE MANAGER; dosya yönetimi, APK inceleme ve düzenleme, kaynak kodu düzenleme ve arşiv işlemlerini tek bir Android uygulamasında bir araya getirir.</p>
-<div class="actions"><a class="btn primary" href="./AHE-MANAGER.apk" download>↓ AHE MANAGER'ı İndir</a><a class="btn secondary" href="#ozellikler">Özellikleri Keşfet ↘</a></div>
-<div class="fine">Android uygulaması · Full ve Lite sürümleri · AHE MODS</div>
+
+<p class="lead">
+AHE MANAGER; dosya yönetimi, APK inceleme ve düzenleme,
+kaynak kodu düzenleme ve arşiv işlemlerini tek bir Android
+uygulamasında bir araya getirir.
+</p>
+
+<div class="actions">
+<a class="btn primary"
+href="https://github.com/AHE-TEAM/AHE-Manager/releases/download/1.1.2/AHE.MANAGER_1.1.2.apk">
+↓ AHE MANAGER'ı İndir
+</a>
+<a class="btn secondary" href="#ozellikler">
+Özellikleri Keşfet ↘
+</a>
 </div>
-<div class="visual" aria-label="AHE MANAGER dosya yöneticisi arayüzü temsili"><div class="glow"></div><div class="device"><div class="screen">
-<div class="screenbar"><span>9:41</span><span>● ● ●</span></div><div class="appname">AHE <span style="color:var(--green)">MANAGER</span></div><div class="appsub">Dosya yöneticisi ve APK araçları</div>
+
+<div class="fine">
+Android uygulaması · Sürüm 1.1.2 · AHE MODS
+</div>
+</div>
+
+<div class="visual" aria-label="AHE MANAGER dosya yöneticisi arayüzü temsili">
+<div class="glow"></div>
+
+<div class="device">
+<div class="screen">
+
+<div class="screenbar">
+<span>9:41</span>
+<span>● ● ●</span>
+</div>
+
+<div class="appname">
+AHE <span style="color:var(--green)">MANAGER</span>
+</div>
+
+<div class="appsub">Dosya yöneticisi ve APK araçları</div>
+
 <div class="path">⌂　 /storage/emulated/0/</div>
-<div class="filelist"><div class="file"><em>📁</em><div><b>Download</b><small>Klasör</small></div></div><div class="file"><em>📦</em><div><b>app-release.apk</b><small>APK dosyası</small></div></div><div class="file"><em>🗜️</em><div><b>project.zip</b><small>Arşiv dosyası</small></div></div><div class="file"><em>📄</em><div><b>AndroidManifest.xml</b><small>Kaynak dosyası</small></div></div></div>
-<div class="screenfoot">DOSYA YÖNETİMİ · APK DÜZENLEME</div>
-</div></div></div>
+
+<div class="filelist">
+<div class="file">
+<em>📁</em>
+<div><b>Download</b><small>Klasör</small></div>
 </div>
-<div class="stats"><div class="stat"><strong>Çift Panel</strong><span>Dosya yönetimi</span></div><div class="stat"><strong>APK Araçları</strong><span>İncele · düzenle · oluştur</span></div><div class="stat"><strong>Full / Lite</strong><span>İki uygulama çeşidi</span></div></div>
+
+<div class="file">
+<em>📦</em>
+<div><b>app-release.apk</b><small>APK dosyası</small></div>
+</div>
+
+<div class="file">
+<em>🗜️</em>
+<div><b>project.zip</b><small>Arşiv dosyası</small></div>
+</div>
+
+<div class="file">
+<em>📄</em>
+<div><b>AndroidManifest.xml</b><small>Kaynak dosyası</small></div>
+</div>
+</div>
+
+<div class="screenfoot">
+DOSYA YÖNETİMİ · APK DÜZENLEME
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="stats">
+<div class="stat">
+<strong>Çift Panel</strong>
+<span>Dosya yönetimi</span>
+</div>
+<div class="stat">
+<strong>APK Araçları</strong>
+<span>İncele · düzenle · oluştur</span>
+</div>
+<div class="stat">
+<strong>1.1.2</strong>
+<span>Güncel sürüm</span>
+</div>
+</div>
+
 <section id="ozellikler">
-<div class="head"><div class="kicker">AHE MANAGER özellikleri</div><h2>Android üzerinde gelişmiş dosya ve APK işlemleri.</h2><p>Dosyalarını düzenle, uygulama paketlerini incele ve geliştirme araçlarını tek noktadan kullan.</p></div>
-<div class="grid">
-<article class="feature"><div class="ico">▣</div><h3>Çift Panelli Dosya Yöneticisi</h3><p>Yerel depolama, arşivler, ağ konumları ve desteklenen ayrıcalıklı depolama alanlarında gezin.</p></article>
-<article class="feature"><div class="ico">📦</div><h3>APK İşlemleri</h3><p>APK dosyalarını kurma, imzalama, ayrıştırma ve yeniden oluşturma araçları.</p></article>
-<article class="feature"><div class="ico">⌘</div><h3>APK Kaynak Düzenleme</h3><p>DEX, ARSC, AndroidManifest.xml ve uygulama kaynakları üzerinde çalışma.</p></article>
-<article class="feature"><div class="ico">{ }</div><h3>Metin ve Kod Editörü</h3><p>Sözdizimi renklendirme desteğiyle kaynak ve metin dosyalarını düzenle.</p></article>
-<article class="feature"><div class="ico">▤</div><h3>Hex Editörü</h3><p>Dosyaların ikili içeriğini hexadecimal görünümde incele ve düzenle.</p></article>
-<article class="feature"><div class="ico">🗜</div><h3>Arşiv Yöneticisi</h3><p>ZIP, RAR ve desteklenen diğer arşiv biçimlerinin içeriğinde gezin.</p></article>
-<article class="feature"><div class="ico">⇄</div><h3>Ağ Depolama Bağlantıları</h3><p>FTP/FTPS, WebDAV ve SMB bağlantılarıyla uzak dosyalara eriş.</p></article>
-<article class="feature"><div class="ico">▧</div><h3>Medya Araçları</h3><p>Görsel, ses ve video dosyaları için uygulama içindeki desteklenen araçları kullan.</p></article>
-<article class="feature"><div class="ico">⚙</div><h3>Geliştirici Araçları</h3><p>Android uygulama paketleri ve dosyalar üzerinde çalışmaya yönelik ek araçlar.</p></article>
+
+<div class="head">
+<div class="kicker">AHE MANAGER özellikleri</div>
+<h2>Android üzerinde gelişmiş dosya ve APK işlemleri.</h2>
+<p>
+Dosyalarını düzenle, uygulama paketlerini incele ve
+geliştirme araçlarını tek noktadan kullan.
+</p>
 </div>
+
+<div class="grid">
+
+<article class="feature">
+<div class="ico">▣</div>
+<h3>Çift Panelli Dosya Yöneticisi</h3>
+<p>Yerel depolama, arşivler, ağ konumları ve desteklenen ayrıcalıklı depolama alanlarında gezin.</p>
+</article>
+
+<article class="feature">
+<div class="ico">📦</div>
+<h3>APK İşlemleri</h3>
+<p>APK dosyalarını kurma, imzalama, ayrıştırma ve yeniden oluşturma araçları.</p>
+</article>
+
+<article class="feature">
+<div class="ico">⌘</div>
+<h3>APK Kaynak Düzenleme</h3>
+<p>DEX, ARSC, AndroidManifest.xml ve uygulama kaynakları üzerinde çalışma.</p>
+</article>
+
+<article class="feature">
+<div class="ico">{ }</div>
+<h3>Metin ve Kod Editörü</h3>
+<p>Sözdizimi renklendirme desteğiyle kaynak ve metin dosyalarını düzenle.</p>
+</article>
+
+<article class="feature">
+<div class="ico">▤</div>
+<h3>Hex Editörü</h3>
+<p>Dosyaların ikili içeriğini hexadecimal görünümde incele ve düzenle.</p>
+</article>
+
+<article class="feature">
+<div class="ico">🗜</div>
+<h3>Arşiv Yöneticisi</h3>
+<p>ZIP, RAR ve desteklenen diğer arşiv biçimlerinin içeriğinde gezin.</p>
+</article>
+
+<article class="feature">
+<div class="ico">⇄</div>
+<h3>Ağ Depolama Bağlantıları</h3>
+<p>FTP/FTPS, WebDAV ve SMB bağlantılarıyla uzak dosyalara eriş.</p>
+</article>
+
+<article class="feature">
+<div class="ico">▧</div>
+<h3>Medya Araçları</h3>
+<p>Görsel, ses ve video dosyaları için uygulama içindeki desteklenen araçları kullan.</p>
+</article>
+
+<article class="feature">
+<div class="ico">⚙</div>
+<h3>Geliştirici Araçları</h3>
+<p>Android uygulama paketleri ve dosyalar üzerinde çalışmaya yönelik ek araçlar.</p>
+</article>
+
+</div>
+
 <div class="wide" id="hakkinda">
-<div class="info"><h3>AHE MODS tarafından özelleştirildi</h3><p>AHE MANAGER, MP Manager açık kaynak projesi temel alınarak Türkçeleştirilmiş ve AHE MODS markasıyla yeniden düzenlenmiştir.</p><div class="ticks"><div class="tick"><b>✓</b><span>İlk açılışta Türkçe kullanım şartları</span></div><div class="tick"><b>✓</b><span>İlk açılış dili Türkçe</span></div><div class="tick"><b>✓</b><span>Türkçe arayüz ve kaynak metinleri</span></div></div></div>
-<div class="info"><h3>Full ve Lite sürümleri</h3><p>Proje iki ürün çeşidi sunar. Full sürüm ek APK yama motoru bileşenlerini içerir; Lite sürüm daha sade bileşen setiyle gelir.</p><div class="ticks"><div class="tick"><b>✓</b><span>Full: ek APK yama motoru bileşenleri</span></div><div class="tick"><b>✓</b><span>Lite: daha hafif bileşen seti</span></div><div class="tick"><b>✓</b><span>Tek uygulamada dosya ve APK çalışma alanı</span></div></div></div>
+
+<div class="info">
+<h3>AHE MODS tarafından özelleştirildi</h3>
+<p>
+AHE MANAGER, MP Manager açık kaynak projesi temel alınarak
+Türkçeleştirilmiş ve AHE MODS markasıyla yeniden düzenlenmiştir.
+</p>
+
+<div class="ticks">
+<div class="tick"><b>✓</b><span>İlk açılışta Türkçe kullanım şartları</span></div>
+<div class="tick"><b>✓</b><span>İlk açılış dili Türkçe</span></div>
+<div class="tick"><b>✓</b><span>Türkçe arayüz ve kaynak metinleri</span></div>
+</div>
+</div>
+
+<div class="info">
+<h3>AHE MANAGER 1.1.2</h3>
+<p>
+AHE MANAGER; dosya yönetimi, APK düzenleme ve geliştirici
+araçlarını tek uygulamada birleştirir.
+</p>
+
+<div class="ticks">
+<div class="tick"><b>✓</b><span>Tek uygulama sürümü</span></div>
+<div class="tick"><b>✓</b><span>Türkçe arayüz</span></div>
+<div class="tick"><b>✓</b><span>Dosya ve APK araçları</span></div>
+</div>
+</div>
+
 </div>
 </section>
-<section id="araclar"><div class="head"><div class="kicker">Kullanım alanları</div><h2>Günlük dosya işlerinden APK geliştirmeye.</h2><p>AHE MANAGER'ı dosya düzenleme, uygulama paketi analizi ve mobil geliştirme iş akışlarında kullan.</p></div><div class="grid"><article class="feature"><div class="ico">📂</div><h3>Dosya Organizasyonu</h3><p>Klasörler ve dosyalar arasında gezin, yerel ve uzak konumları yönet.</p></article><article class="feature"><div class="ico">🛠</div><h3>APK Modifikasyonu</h3><p>Uygulama paketlerini ayrıştır, kaynaklarını incele ve desteklenen işlemleri uygula.</p></article><article class="feature"><div class="ico">💻</div><h3>Kaynak İnceleme</h3><p>Metin, kod, manifest ve ikili dosyaları uygulama içinden görüntüle.</p></article></div></section>
-<section id="indir"><div class="download"><div><div class="kicker">AHE MANAGER</div><h2>Dosya yönetimini tek yerde topla.</h2><p>AHE MANAGER APK dosyasını indirip Android cihazına kur.</p><div class="note">İndirme bağlantısını çalıştırmak için APK dosyanı GitHub Pages deposuna AHE-MANAGER.apk adıyla ekle.</div></div><div class="actions"><a class="btn primary" href="./AHE-MANAGER.apk" download>↓ APK'yı İndir</a><a class="btn secondary" href="https://github.com/AHE-TEAM/AHE-MANAGER-PACKS" target="_blank" rel="noopener">GitHub ↗</a></div></div></section>
+
+<section id="araclar">
+
+<div class="head">
+<div class="kicker">Kullanım alanları</div>
+<h2>Günlük dosya işlerinden APK geliştirmeye.</h2>
+<p>
+AHE MANAGER'ı dosya düzenleme, uygulama paketi analizi
+ve mobil geliştirme iş akışlarında kullan.
+</p>
+</div>
+
+<div class="grid">
+
+<article class="feature">
+<div class="ico">📂</div>
+<h3>Dosya Organizasyonu</h3>
+<p>Klasörler ve dosyalar arasında gezin, yerel ve uzak konumları yönet.</p>
+</article>
+
+<article class="feature">
+<div class="ico">🛠</div>
+<h3>APK Modifikasyonu</h3>
+<p>Uygulama paketlerini ayrıştır, kaynaklarını incele ve desteklenen işlemleri uygula.</p>
+</article>
+
+<article class="feature">
+<div class="ico">💻</div>
+<h3>Kaynak İnceleme</h3>
+<p>Metin, kod, manifest ve ikili dosyaları uygulama içinden görüntüle.</p>
+</article>
+
+</div>
+</section>
+
+<section id="indir">
+
+<div class="download">
+
+<div>
+<div class="kicker">AHE MANAGER 1.1.2</div>
+<h2>AHE MANAGER'ı hemen indir.</h2>
+<p>En son sürümü GitHub Releases üzerinden Android cihazına indir.</p>
+<div class="note">Android APK · Sürüm 1.1.2 · AHE TEAM</div>
+</div>
+
+<div class="actions">
+<a class="btn primary"
+href="https://github.com/AHE-TEAM/AHE-Manager/releases/download/1.1.2/AHE.MANAGER_1.1.2.apk">
+↓ APK'yı İndir
+</a>
+
+<a class="btn secondary"
+href="https://github.com/AHE-TEAM/AHE-Manager/releases/tag/1.1.2"
+target="_blank"
+rel="noopener">
+Sürüm Notları ↗
+</a>
+</div>
+
+</div>
+</section>
+
 </main>
-<footer><div class="wrap foot"><div><b>AHE MANAGER</b><br>© <span id="year"></span> AHE MODS. Tüm hakları saklıdır.</div><div>MP Manager açık kaynak projesi temel alınmıştır · GPL-3.0</div></div></footer>
-<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+
+<footer>
+<div class="wrap foot">
+
+<div>
+<b>AHE MANAGER</b><br>
+© <span id="year"></span> AHE MODS.
+Tüm hakları saklıdır.
+</div>
+
+<div>
+MP Manager açık kaynak projesi temel alınmıştır · GPL-3.0
+</div>
+
+</div>
+</footer>
+
+<script>
+document.getElementById('year').textContent =
+new Date().getFullYear();
+</script>
+
 </body>
 </html>
