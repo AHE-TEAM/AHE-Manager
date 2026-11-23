@@ -3,716 +3,341 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0a100e">
-<meta name="description" content="AHE MANAGER — Android dosya yöneticisi ve APK düzenleme araçları. Dosyalarını yönet, APK'ları incele ve düzenle.">
-<title>AHE MANAGER 1.1.2 — Android Dosya Yöneticisi</title>
-
+<meta name="theme-color" content="#111411">
+<meta name="description" content="AHE MANAGER 1.1.3 — AHE TEAM tarafından geliştirilen Android dosya yöneticisi ve APK düzenleme uygulaması.">
+<title>AHE MANAGER — Android File & APK Toolkit</title>
 <style>
 :root{
-color-scheme:dark;
---bg:#080d0b;
---panel:#101915;
---panel2:#14221b;
---text:#eff8f1;
---muted:#9aada1;
---line:#ffffff16;
---green:#9be36b;
---green2:#c5f5a1;
---shadow:0 24px 80px #0008;
---apk:url("https://github.com/AHE-TEAM/AHE-Manager/releases/download/1.1.2/AHE.MANAGER_1.1.2.apk");
+  color-scheme:dark;
+  --bg:#101210; --surface:#171a17; --surface2:#1d211d; --surface3:#242a24;
+  --text:#f2f5ef; --muted:#9ba69b; --line:#ffffff14; --accent:#b6e56e;
+  --accent-dark:#15210b; --orange:#d8a76a; --shadow:0 28px 90px #0008;
+  --max:1200px;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-margin:0;
-background:
-radial-gradient(ellipse at 78% -8%,#8bd85b22,transparent 36%),
-radial-gradient(ellipse at 0 45%,#1e604322,transparent 35%),
-var(--bg);
-color:var(--text);
-font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-line-height:1.65;
-}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.65}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(to bottom,black,transparent 70%)}
 a{color:inherit;text-decoration:none}
-.wrap{width:min(1140px,calc(100% - 40px));margin:auto}
-
-.nav{
-height:76px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-border-bottom:1px solid var(--line);
-}
-.brand{
-display:flex;
-align-items:center;
-gap:11px;
-font-weight:900;
-letter-spacing:.07em;
-}
-.logo{
-width:40px;
-height:40px;
-border-radius:13px;
-background:linear-gradient(145deg,#d1ffa8,#65b847);
-display:grid;
-place-items:center;
-color:#10200e;
-font-size:20px;
-font-weight:950;
-box-shadow:0 8px 26px #8fd45b35;
-}
-.navlinks{
-display:flex;
-gap:26px;
-color:var(--muted);
-font-size:14px;
-}
-.navlinks a:hover{color:var(--green2)}
-
-.hero{
-padding:88px 0 65px;
-display:grid;
-grid-template-columns:1.12fr .88fr;
-gap:48px;
-align-items:center;
-}
-.eyebrow{
-display:inline-flex;
-gap:9px;
-align-items:center;
-border:1px solid #9be36b44;
-background:#9be36b10;
-color:var(--green2);
-padding:7px 13px;
-border-radius:99px;
-font-size:12px;
-font-weight:800;
-letter-spacing:.08em;
-text-transform:uppercase;
-}
-.dot{
-width:7px;
-height:7px;
-border-radius:50%;
-background:var(--green);
-box-shadow:0 0 13px var(--green);
-}
-h1{
-font-size:clamp(46px,7vw,78px);
-line-height:1.01;
-letter-spacing:-.06em;
-margin:22px 0;
-}
-h1 span{color:var(--green)}
-.lead{
-max-width:600px;
-color:var(--muted);
-font-size:18px;
-line-height:1.8;
-}
-.actions{
-display:flex;
-gap:13px;
-flex-wrap:wrap;
-margin-top:28px;
-}
-.btn{
-min-height:52px;
-padding:0 22px;
-border-radius:14px;
-display:inline-flex;
-align-items:center;
-justify-content:center;
-gap:10px;
-font-weight:850;
-font-size:14px;
-transition:.2s;
-cursor:pointer;
-}
+button{font:inherit}
+.wrap{width:min(var(--max),calc(100% - 48px));margin-inline:auto}
+.topline{height:3px;background:linear-gradient(90deg,var(--accent) 0 17%,transparent 17% 100%)}
+.nav{height:78px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;position:relative;z-index:3;background:#101210dd;backdrop-filter:blur(18px)}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.035em}
+.brandmark{width:38px;height:38px;display:grid;place-items:center;background:var(--accent);color:#121a0c;font-weight:1000;font-size:22px;clip-path:polygon(0 0,100% 0,100% 78%,78% 100%,0 100%)}
+.brand small{font-size:10px;color:var(--muted);letter-spacing:.19em;display:block;margin-top:-4px}
+.navlinks{display:flex;align-items:center;gap:28px;color:#b4bcb4;font-size:13px}
+.navlinks a:hover{color:var(--accent)}
+.navdownload{border:1px solid #b6e56e66;padding:10px 15px;color:var(--accent);font-weight:800;font-size:12px;letter-spacing:.04em}
+.menu-toggle{display:none;background:none;border:1px solid var(--line);color:var(--text);padding:9px 12px}
+.hero{padding:82px 0 70px;display:grid;grid-template-columns:1.03fr .97fr;gap:54px;align-items:center}
+.overline{font-size:11px;text-transform:uppercase;letter-spacing:.19em;color:var(--accent);font-weight:850;display:flex;align-items:center;gap:12px}
+.overline:before{content:"";width:28px;height:1px;background:var(--accent)}
+.hero h1{font-size:clamp(48px,7vw,88px);letter-spacing:-.075em;line-height:.99;margin:25px 0 20px;font-weight:900}
+.hero h1 .accent{color:var(--accent)}
+.hero h1 .outline{color:transparent;-webkit-text-stroke:1px #b9c2b8}
+.lead{max-width:560px;color:#aab3aa;font-size:16px;line-height:1.85}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:49px;padding:0 19px;font-size:12px;font-weight:850;letter-spacing:.035em;border:1px solid transparent;transition:transform .2s,border-color .2s,background .2s}
 .btn:hover{transform:translateY(-2px)}
-.primary{
-background:var(--green);
-color:#10200d;
-box-shadow:0 12px 30px #8fd45b2a;
+.btn-primary{background:var(--accent);color:#14200c}
+.btn-primary:hover{background:#c8f28a}
+.btn-ghost{border-color:var(--line);background:#ffffff04}
+.btn-ghost:hover{border-color:#b6e56e66}
+.hero-meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:25px;color:#778278;font-size:11px}
+.hero-meta span{display:flex;align-items:center;gap:7px}
+.hero-meta i{width:5px;height:5px;border-radius:50%;background:var(--accent);display:inline-block}
+.hero-art{position:relative;min-height:440px;display:flex;align-items:center;justify-content:center}
+.art-label{position:absolute;top:14px;left:2px;color:#647066;font:10px ui-monospace,monospace;letter-spacing:.1em}
+.art-stamp{position:absolute;bottom:10px;right:0;border:1px solid var(--line);padding:10px 12px;color:#89958b;font:10px ui-monospace,monospace}
+.mock-window{width:min(500px,100%);position:relative;border:1px solid #3c443b;background:#171b17;box-shadow:var(--shadow);transform:rotate(-1deg)}
+.mock-head{height:42px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff12;padding:0 14px;background:#1c211c;color:#a8b1a8;font:10px ui-monospace,monospace}
+.windowdots{display:flex;gap:5px}.windowdots b{width:6px;height:6px;border-radius:50%;background:#60675f}
+.mock-body{padding:15px}
+.mock-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.mock-title strong{font-size:15px;letter-spacing:.02em}.mock-title span{font:10px ui-monospace,monospace;color:var(--accent)}
+.panes{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pane{border:1px solid #ffffff12;background:#101410;min-width:0}
+.pane-head{padding:9px 10px;border-bottom:1px solid #ffffff10;font:9px ui-monospace,monospace;color:#9ba69b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pane-head em{font-style:normal;color:var(--accent);margin-right:5px}
+.rows{padding:7px}
+.file-row{display:flex;align-items:center;gap:7px;padding:8px 5px;font-size:10px;color:#c7d0c6;border-bottom:1px solid #ffffff06;min-width:0}
+.file-row:last-child{border-bottom:0}
+.file-icon{width:15px;text-align:center;color:var(--accent);font-family:monospace}
+.file-row span:last-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.file-row.active{background:#b6e56e12;color:#e2f2d3}
+.mock-status{display:flex;justify-content:space-between;margin-top:11px;padding-top:10px;border-top:1px solid #ffffff12;color:#788478;font:9px ui-monospace,monospace}
+.mini-tool{position:absolute;left:-15px;bottom:55px;width:175px;border:1px solid #3a4438;background:#202520;padding:13px;box-shadow:0 16px 50px #0007}
+.mini-tool small{color:var(--accent);font:9px ui-monospace,monospace;letter-spacing:.12em}
+.mini-tool strong{display:block;margin:5px 0;font-size:13px}
+.mini-tool span{font-size:10px;color:var(--muted)}
+.section{padding:76px 0;border-top:1px solid var(--line)}
+.section-head{display:grid;grid-template-columns:.8fr 1.2fr;gap:32px;align-items:end;margin-bottom:36px}
+.section-tag{font-size:10px;color:var(--accent);font-weight:850;letter-spacing:.18em;text-transform:uppercase}
+.section-head h2{margin:8px 0 0;font-size:clamp(30px,4.3vw,52px);line-height:1.08;letter-spacing:-.055em}
+.section-head p{max-width:550px;color:var(--muted);font-size:14px;margin:0}
+.feature-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+.feature{position:relative;border:1px solid var(--line);background:linear-gradient(145deg,#1b1f1b,#151815);padding:23px;min-height:205px;overflow:hidden}
+.feature:nth-child(1),.feature:nth-child(4){grid-column:span 7}
+.feature:nth-child(2),.feature:nth-child(5){grid-column:span 5}
+.feature:nth-child(3),.feature:nth-child(6){grid-column:span 6}
+.feature:nth-child(7),.feature:nth-child(8){grid-column:span 6}
+.feature:hover{border-color:#b6e56e55}
+.feature-number{position:absolute;right:18px;top:18px;color:#586257;font:10px ui-monospace,monospace}
+.feature-symbol{width:35px;height:35px;border:1px solid #b6e56e44;color:var(--accent);display:grid;place-items:center;font:15px ui-monospace,monospace;margin-bottom:19px}
+.feature h3{font-size:16px;margin:0 0 8px;letter-spacing:-.02em}
+.feature p{font-size:12px;color:#98a298;max-width:490px;margin:0;line-height:1.75}
+.feature .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:13px}
+.tags span{border:1px solid #ffffff14;padding:4px 7px;color:#839083;font:9px ui-monospace,monospace}
+.details{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.detail-panel{border:1px solid var(--line);background:#171a17;padding:28px}
+.detail-panel h3{margin:0;font-size:19px;letter-spacing:-.035em}
+.detail-panel p{color:var(--muted);font-size:13px;margin:11px 0 0}
+.checklist{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:11px}
+.checklist li{display:flex;gap:10px;font-size:12px;color:#c2cbc1}
+.checklist li:before{content:"+";color:var(--accent);font-family:monospace;font-size:14px}
+.project-links{margin-top:20px;display:grid;gap:9px}
+.project-link{display:flex;justify-content:space-between;align-items:center;gap:10px;border:1px solid var(--line);padding:12px 14px;font-size:11px;color:#c7d0c6}
+.project-link:hover{border-color:#b6e56e55;color:var(--accent)}
+.project-link small{color:#7e8b7f;font:9px ui-monospace,monospace}
+.notice{border-left:2px solid var(--orange);padding:12px 15px;background:#d8a76a0a;color:#9eaa9e;font-size:11px;margin-top:20px}
+.release{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:stretch}
+.release-box{border:1px solid #b6e56e35;background:linear-gradient(120deg,#20281b,#171b17);padding:30px;position:relative;overflow:hidden}
+.release-box:after{content:"1.1.3";position:absolute;right:-12px;bottom:-33px;font-size:120px;font-weight:950;letter-spacing:-.1em;color:#b6e56e08}
+.release-box h2{font-size:clamp(28px,4vw,43px);line-height:1.08;letter-spacing:-.06em;margin:12px 0}
+.release-box p{color:var(--muted);font-size:13px;max-width:440px}
+.release-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.release-meta{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.meta-item{border:1px solid var(--line);background:#171a17;padding:17px}
+.meta-item small{display:block;color:#7d897e;font:9px ui-monospace,monospace;text-transform:uppercase;letter-spacing:.12em}
+.meta-item strong{display:block;margin-top:6px;font-size:13px}
+.install{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.install-step{border:1px solid var(--line);padding:17px;background:#171a17}
+.install-step b{display:block;color:var(--accent);font:10px ui-monospace,monospace}
+.install-step strong{display:block;font-size:12px;margin:7px 0}
+.install-step p{font-size:11px;color:var(--muted);margin:0}
+footer{border-top:1px solid var(--line);padding:27px 0 35px}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-brand{font-weight:900;letter-spacing:.08em;font-size:12px}
+.footer-brand span{color:var(--accent)}
+.footer-copy{font-size:10px;color:#778177}
+.footer-nav{display:flex;gap:18px;font-size:10px;color:#9aa49a}
+.footer-nav a:hover{color:var(--accent)}
+/* Safe reveal: content is visible by default; animation is opt-in only after JS works. */
+.reveal{opacity:1;transform:none}
+.js-reveal .reveal{opacity:0;transform:translateY(16px);transition:opacity .65s ease,transform .65s ease}
+.js-reveal .reveal.in{opacity:1;transform:none}
+@media(max-width:900px){
+ .hero{grid-template-columns:1fr;gap:28px;padding-top:65px}
+ .hero-art{min-height:380px}
+ .section-head{grid-template-columns:1fr;gap:14px}
+ .feature:nth-child(n){grid-column:span 6}
+ .release{grid-template-columns:1fr}
 }
-.primary:hover{background:var(--green2)}
-.secondary{
-border:1px solid var(--line);
-background:#ffffff08;
+@media(max-width:620px){
+ .wrap{width:calc(100% - 28px)}
+ .nav{height:66px}
+ .navlinks{display:none;position:absolute;top:66px;left:0;right:0;padding:16px;background:#141814;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}
+ .navlinks.open{display:flex}
+ .navlinks a{padding:12px;border-bottom:1px solid #ffffff0a}
+ .navdownload{display:none}
+ .menu-toggle{display:block}
+ .hero{padding:52px 0 48px}
+ .hero h1{font-size:51px}
+ .lead{font-size:14px}
+ .hero-art{min-height:320px}
+ .mock-window{width:100%}
+ .mock-body{padding:10px}
+ .pane-head{font-size:8px}
+ .file-row{font-size:9px;padding:7px 3px}
+ .mini-tool{left:-5px;bottom:22px;width:145px;padding:10px}
+ .art-label{top:0}
+ .art-stamp{bottom:0}
+ .section{padding:52px 0}
+ .section-head h2{font-size:33px}
+ .feature:nth-child(n){grid-column:span 12;min-height:unset;padding:18px}
+ .feature-symbol{margin-bottom:12px}
+ .details{grid-template-columns:1fr}
+ .detail-panel{padding:21px}
+ .release-box{padding:23px}
+ .release-meta{grid-template-columns:1fr 1fr}
+ .install{grid-template-columns:1fr}
+ .footer-inner{align-items:flex-start;flex-direction:column}
 }
-.secondary:hover{
-border-color:#9be36b70;
-background:#9be36b0d;
-}
-.fine{
-font-size:12px;
-color:#82958a;
-margin-top:13px;
-}
-
-.visual{
-min-height:390px;
-display:grid;
-place-items:center;
-position:relative;
-}
-.glow{
-position:absolute;
-width:310px;
-height:310px;
-border-radius:50%;
-background:#8fd45b25;
-filter:blur(60px);
-}
-.device{
-position:relative;
-width:min(330px,88%);
-padding:12px;
-border:1px solid #b7d7bf40;
-border-radius:34px;
-background:linear-gradient(145deg,#1c2b23,#0b120f);
-box-shadow:var(--shadow);
-transform:rotate(3deg);
-}
-.screen{
-border-radius:25px;
-background:linear-gradient(160deg,#17251e,#0c1210);
-padding:20px 17px;
-min-height:370px;
-overflow:hidden;
-}
-.screenbar{
-display:flex;
-justify-content:space-between;
-color:#a9b9ae;
-font-size:11px;
-}
-.appname{
-font-size:21px;
-font-weight:950;
-margin:28px 0 2px;
-}
-.appsub{font-size:10px;color:var(--muted)}
-.path{
-margin-top:20px;
-padding:10px 12px;
-border-radius:10px;
-background:#ffffff0a;
-border:1px solid #ffffff12;
-font-size:10px;
-color:#c6d5ca;
-}
-.filelist{
-display:grid;
-gap:8px;
-margin-top:12px;
-}
-.file{
-display:flex;
-align-items:center;
-gap:10px;
-padding:10px;
-border-radius:11px;
-background:#ffffff08;
-border:1px solid #ffffff0a;
-font-size:11px;
-}
-.file em{font-style:normal;font-size:17px}
-.file small{
-display:block;
-color:var(--muted);
-font-size:9px;
-}
-.screenfoot{
-margin-top:15px;
-padding:11px;
-border-radius:11px;
-background:#9be36b19;
-color:var(--green2);
-font-size:10px;
-text-align:center;
-font-weight:800;
-}
-
-.stats{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:12px;
-margin:0 0 60px;
-}
-.stat{
-padding:19px;
-border:1px solid var(--line);
-border-radius:16px;
-background:#ffffff05;
-text-align:center;
-}
-.stat strong{
-display:block;
-color:var(--green2);
-font-size:18px;
-}
-.stat span{font-size:12px;color:var(--muted)}
-
-section{padding:28px 0 70px}
-.head{
-text-align:center;
-max-width:700px;
-margin:0 auto 32px;
-}
-.kicker{
-font-size:12px;
-color:var(--green);
-font-weight:850;
-letter-spacing:.15em;
-text-transform:uppercase;
-}
-.head h2{
-font-size:clamp(29px,4vw,43px);
-letter-spacing:-.045em;
-margin:8px 0;
-}
-.head p{color:var(--muted);margin:0}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:14px;
-}
-.feature{
-padding:22px;
-border-radius:18px;
-border:1px solid var(--line);
-background:linear-gradient(145deg,#14211b,#0d1411);
-min-height:180px;
-transition:.2s;
-}
-.feature:hover{
-transform:translateY(-4px);
-border-color:#9be36b55;
-}
-.ico{
-width:43px;
-height:43px;
-border-radius:13px;
-background:#9be36b17;
-color:var(--green2);
-display:grid;
-place-items:center;
-font-size:21px;
-}
-.feature h3{font-size:16px;margin:14px 0 5px}
-.feature p{font-size:13px;color:var(--muted);margin:0}
-
-.wide{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:16px;
-margin-top:18px;
-}
-.info{
-padding:25px;
-border:1px solid var(--line);
-border-radius:18px;
-background:#ffffff05;
-}
-.info h3{margin:0 0 8px}
-.info p{margin:0;color:var(--muted);font-size:14px}
-.ticks{
-display:grid;
-gap:9px;
-margin-top:16px;
-}
-.tick{
-display:flex;
-gap:10px;
-color:#c6d5ca;
-font-size:13px;
-}
-.tick b{color:var(--green)}
-
-.download{
-padding:42px;
-border:1px solid #9be36b45;
-border-radius:25px;
-background:
-radial-gradient(ellipse at 90% 0%,#9be36b20,transparent 45%),
-linear-gradient(140deg,#14221b,#0d1411);
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:24px;
-}
-.download h2{
-font-size:clamp(27px,4vw,39px);
-letter-spacing:-.04em;
-margin:0 0 8px;
-}
-.download p{color:var(--muted);margin:0}
-.download .actions{margin:0;flex-shrink:0}
-.note{
-font-size:12px;
-color:#82958a;
-margin-top:13px;
-}
-
-footer{
-padding:30px 0 38px;
-border-top:1px solid var(--line);
-color:#82958a;
-font-size:12px;
-}
-.foot{
-display:flex;
-justify-content:space-between;
-gap:15px;
-flex-wrap:wrap;
-}
-.foot b{color:#c9d8ce;letter-spacing:.08em}
-
-@media(max-width:850px){
-.hero{
-grid-template-columns:1fr;
-padding:62px 0 45px;
-gap:18px;
-}
-.visual{min-height:360px}
-.grid{grid-template-columns:repeat(2,1fr)}
-.wide{grid-template-columns:1fr}
-.download{
-align-items:flex-start;
-flex-direction:column;
-}
-.download .actions{margin-top:5px}
-}
-
-@media(max-width:520px){
-.wrap{width:calc(100% - 28px)}
-.nav{height:65px}
-.navlinks{gap:13px;font-size:12px}
-.navlinks a:first-child{display:none}
-.hero{padding-top:48px}
-h1{font-size:49px}
-.lead{font-size:15px}
-.visual{min-height:340px}
-.device{width:270px}
-.screen{min-height:350px}
-.stats{gap:7px;margin-bottom:42px}
-.stat{padding:14px 5px}
-.stat strong{font-size:16px}
-.stat span{font-size:10px}
-.grid{gap:9px}
-.feature{padding:16px;min-height:180px}
-.feature h3{font-size:14px}
-.feature p{font-size:12px}
-.download{padding:25px 20px}
-.actions .btn{width:100%}
-.foot{flex-direction:column}
-}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.js-reveal .reveal{opacity:1;transform:none;transition:none}.btn{transition:none}}
 </style>
 </head>
-
 <body>
-
+<div class="topline"></div>
 <header class="wrap nav">
-<a class="brand" href="#top">
-<span class="logo">A</span>
-<span>AHE <span style="color:var(--green)">MANAGER</span></span>
-</a>
-
-<nav class="navlinks">
-<a href="#ozellikler">Özellikler</a>
-<a href="#araclar">Araçlar</a>
-<a href="#hakkinda">Hakkında</a>
-<a href="#indir">İndir</a>
-</nav>
+  <a class="brand" href="#top" aria-label="AHE MANAGER ana sayfa">
+    <span class="brandmark">A</span><span>AHE MANAGER<small>ANDROID FILE & APK TOOLKIT</small></span>
+  </a>
+  <nav class="navlinks" id="navlinks">
+    <a href="#features">Özellikler</a><a href="#project">Proje</a><a href="#source">Kaynak & Lisans</a><a href="#install">Kurulum</a>
+    <a class="navdownload" href="https://github.com/AHE-TEAM/AHE-Manager/releases/tag/1.1.3">RELEASE ↗</a>
+  </nav>
+  <button class="menu-toggle" id="menuToggle" aria-label="Menüyü aç" aria-expanded="false">MENÜ +</button>
 </header>
 
 <main id="top" class="wrap">
-
-<div class="hero">
-
-<div>
-<span class="eyebrow">
-<span class="dot"></span>
-Android dosya yöneticisi & APK araç seti
-</span>
-
-<h1>Dosyalarını<br><span>yönet.</span><br>APK'larını düzenle.</h1>
-
-<p class="lead">
-AHE MANAGER; dosya yönetimi, APK inceleme ve düzenleme,
-kaynak kodu düzenleme ve arşiv işlemlerini tek bir Android
-uygulamasında bir araya getirir.
-</p>
-
-<div class="actions">
-<a class="btn primary"
-href="https://github.com/AHE-TEAM/AHE-Manager/releases/download/1.1.2/AHE.MANAGER_1.1.2.apk">
-↓ AHE MANAGER'ı İndir
-</a>
-<a class="btn secondary" href="#ozellikler">
-Özellikleri Keşfet ↘
-</a>
-</div>
-
-<div class="fine">
-Android uygulaması · Sürüm 1.1.2 · AHE MODS
-</div>
-</div>
-
-<div class="visual" aria-label="AHE MANAGER dosya yöneticisi arayüzü temsili">
-<div class="glow"></div>
-
-<div class="device">
-<div class="screen">
-
-<div class="screenbar">
-<span>9:41</span>
-<span>● ● ●</span>
-</div>
-
-<div class="appname">
-AHE <span style="color:var(--green)">MANAGER</span>
-</div>
-
-<div class="appsub">Dosya yöneticisi ve APK araçları</div>
-
-<div class="path">⌂　 /storage/emulated/0/</div>
-
-<div class="filelist">
-<div class="file">
-<em>📁</em>
-<div><b>Download</b><small>Klasör</small></div>
-</div>
-
-<div class="file">
-<em>📦</em>
-<div><b>app-release.apk</b><small>APK dosyası</small></div>
-</div>
-
-<div class="file">
-<em>🗜️</em>
-<div><b>project.zip</b><small>Arşiv dosyası</small></div>
-</div>
-
-<div class="file">
-<em>📄</em>
-<div><b>AndroidManifest.xml</b><small>Kaynak dosyası</small></div>
-</div>
-</div>
-
-<div class="screenfoot">
-DOSYA YÖNETİMİ · APK DÜZENLEME
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="stats">
-<div class="stat">
-<strong>Çift Panel</strong>
-<span>Dosya yönetimi</span>
-</div>
-<div class="stat">
-<strong>APK Araçları</strong>
-<span>İncele · düzenle · oluştur</span>
-</div>
-<div class="stat">
-<strong>1.1.2</strong>
-<span>Güncel sürüm</span>
-</div>
-</div>
-
-<section id="ozellikler">
-
-<div class="head">
-<div class="kicker">AHE MANAGER özellikleri</div>
-<h2>Android üzerinde gelişmiş dosya ve APK işlemleri.</h2>
-<p>
-Dosyalarını düzenle, uygulama paketlerini incele ve
-geliştirme araçlarını tek noktadan kullan.
-</p>
-</div>
-
-<div class="grid">
-
-<article class="feature">
-<div class="ico">▣</div>
-<h3>Çift Panelli Dosya Yöneticisi</h3>
-<p>Yerel depolama, arşivler, ağ konumları ve desteklenen ayrıcalıklı depolama alanlarında gezin.</p>
-</article>
-
-<article class="feature">
-<div class="ico">📦</div>
-<h3>APK İşlemleri</h3>
-<p>APK dosyalarını kurma, imzalama, ayrıştırma ve yeniden oluşturma araçları.</p>
-</article>
-
-<article class="feature">
-<div class="ico">⌘</div>
-<h3>APK Kaynak Düzenleme</h3>
-<p>DEX, ARSC, AndroidManifest.xml ve uygulama kaynakları üzerinde çalışma.</p>
-</article>
-
-<article class="feature">
-<div class="ico">{ }</div>
-<h3>Metin ve Kod Editörü</h3>
-<p>Sözdizimi renklendirme desteğiyle kaynak ve metin dosyalarını düzenle.</p>
-</article>
-
-<article class="feature">
-<div class="ico">▤</div>
-<h3>Hex Editörü</h3>
-<p>Dosyaların ikili içeriğini hexadecimal görünümde incele ve düzenle.</p>
-</article>
-
-<article class="feature">
-<div class="ico">🗜</div>
-<h3>Arşiv Yöneticisi</h3>
-<p>ZIP, RAR ve desteklenen diğer arşiv biçimlerinin içeriğinde gezin.</p>
-</article>
-
-<article class="feature">
-<div class="ico">⇄</div>
-<h3>Ağ Depolama Bağlantıları</h3>
-<p>FTP/FTPS, WebDAV ve SMB bağlantılarıyla uzak dosyalara eriş.</p>
-</article>
-
-<article class="feature">
-<div class="ico">▧</div>
-<h3>Medya Araçları</h3>
-<p>Görsel, ses ve video dosyaları için uygulama içindeki desteklenen araçları kullan.</p>
-</article>
-
-<article class="feature">
-<div class="ico">⚙</div>
-<h3>Geliştirici Araçları</h3>
-<p>Android uygulama paketleri ve dosyalar üzerinde çalışmaya yönelik ek araçlar.</p>
-</article>
-
-</div>
-
-<div class="wide" id="hakkinda">
-
-<div class="info">
-<h3>AHE MODS tarafından özelleştirildi</h3>
-<p>
-AHE MANAGER, MP Manager açık kaynak projesi temel alınarak
-Türkçeleştirilmiş ve AHE MODS markasıyla yeniden düzenlenmiştir.
-</p>
-
-<div class="ticks">
-<div class="tick"><b>✓</b><span>İlk açılışta Türkçe kullanım şartları</span></div>
-<div class="tick"><b>✓</b><span>İlk açılış dili Türkçe</span></div>
-<div class="tick"><b>✓</b><span>Türkçe arayüz ve kaynak metinleri</span></div>
-</div>
-</div>
-
-<div class="info">
-<h3>AHE MANAGER 1.1.2</h3>
-<p>
-AHE MANAGER; dosya yönetimi, APK düzenleme ve geliştirici
-araçlarını tek uygulamada birleştirir.
-</p>
-
-<div class="ticks">
-<div class="tick"><b>✓</b><span>Tek uygulama sürümü</span></div>
-<div class="tick"><b>✓</b><span>Türkçe arayüz</span></div>
-<div class="tick"><b>✓</b><span>Dosya ve APK araçları</span></div>
-</div>
-</div>
-
-</div>
+<section class="hero">
+  <div class="hero-copy reveal">
+    <div class="overline">AHE TEAM / RELEASE 1.1.3</div>
+    <h1>Dosyalar.<br><span class="accent">Kontrol sende.</span><br><span class="outline">APK iş akışı.</span></h1>
+    <p class="lead">AHE MANAGER; dosya yönetimi, APK düzenleme, kod editörü, arşiv yönetimi ve geliştirici araçlarını tek bir Android uygulamasında birleştirir.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://github.com/AHE-TEAM/AHE-Manager/releases/download/1.1.3/AHE.MANAGER_1.1.3.apk">↓ APK'YI İNDİR</a>
+      <a class="btn btn-ghost" href="https://github.com/AHE-TEAM/AHE-Manager">KAYNAK KODU ↗</a>
+    </div>
+    <div class="hero-meta"><span><i></i> Android 6.0+ (API 23)</span><span><i></i> Full / Lite</span><span><i></i> Türkçe arayüz</span></div>
+  </div>
+  <div class="hero-art reveal" aria-label="İki panel dosya yönetimi uygulama arayüzü konsept görseli">
+    <div class="art-label">UI PREVIEW / FILE OPERATIONS</div>
+    <div class="mock-window">
+      <div class="mock-head"><span>AHE MANAGER — FILES</span><span class="windowdots"><b></b><b></b><b></b></span></div>
+      <div class="mock-body">
+        <div class="mock-title"><strong>File explorer</strong><span>DUAL-PANE / 01</span></div>
+        <div class="panes">
+          <div class="pane"><div class="pane-head"><em>▰</em> /storage/emulated/0</div><div class="rows">
+            <div class="file-row"><span class="file-icon">▸</span><span>Download</span></div>
+            <div class="file-row"><span class="file-icon">▸</span><span>Documents</span></div>
+            <div class="file-row active"><span class="file-icon">▣</span><span>AHE-project</span></div>
+            <div class="file-row"><span class="file-icon">▸</span><span>Android</span></div>
+            <div class="file-row"><span class="file-icon">▸</span><span>Pictures</span></div>
+          </div></div>
+          <div class="pane"><div class="pane-head"><em>▰</em> /AHE-project</div><div class="rows">
+            <div class="file-row"><span class="file-icon">▣</span><span>app</span></div>
+            <div class="file-row"><span class="file-icon">◇</span><span>build.gradle</span></div>
+            <div class="file-row"><span class="file-icon">▤</span><span>README.md</span></div>
+            <div class="file-row"><span class="file-icon">▧</span><span>release.apk</span></div>
+            <div class="file-row"><span class="file-icon">⌘</span><span>AndroidManifest</span></div>
+          </div></div>
+        </div>
+        <div class="mock-status"><span>5 ITEMS / 2 PANES</span><span>LOCAL STORAGE</span></div>
+      </div>
+    </div>
+    <div class="mini-tool"><small>WORKSPACE / TOOLS</small><strong>APK · TEXT · HEX</strong><span>Inspect and edit in one place.</span></div>
+    <div class="art-stamp">AHE MODS · ANDROID</div>
+  </div>
 </section>
 
-<section id="araclar">
-
-<div class="head">
-<div class="kicker">Kullanım alanları</div>
-<h2>Günlük dosya işlerinden APK geliştirmeye.</h2>
-<p>
-AHE MANAGER'ı dosya düzenleme, uygulama paketi analizi
-ve mobil geliştirme iş akışlarında kullan.
-</p>
-</div>
-
-<div class="grid">
-
-<article class="feature">
-<div class="ico">📂</div>
-<h3>Dosya Organizasyonu</h3>
-<p>Klasörler ve dosyalar arasında gezin, yerel ve uzak konumları yönet.</p>
-</article>
-
-<article class="feature">
-<div class="ico">🛠</div>
-<h3>APK Modifikasyonu</h3>
-<p>Uygulama paketlerini ayrıştır, kaynaklarını incele ve desteklenen işlemleri uygula.</p>
-</article>
-
-<article class="feature">
-<div class="ico">💻</div>
-<h3>Kaynak İnceleme</h3>
-<p>Metin, kod, manifest ve ikili dosyaları uygulama içinden görüntüle.</p>
-</article>
-
-</div>
+<section class="section" id="features">
+  <div class="section-head reveal">
+    <div><div class="section-tag">01 / TOOLSET</div><h2>Bir uygulama.<br>Birden fazla çalışma alanı.</h2></div>
+    <p>Dosya işlemlerinden uygulama paketlerine, metin düzenlemeden ağ depolamaya kadar Android üzerinde çalışmak için tasarlanmış araçlar.</p>
+  </div>
+  <div class="feature-grid">
+    <article class="feature reveal"><span class="feature-number">01</span><div class="feature-symbol">⇄</div><h3>Çift panelli dosya yöneticisi</h3><p>İki konumu yan yana görüntüleyerek dosya ve klasör işlemlerini kolaylaştır. Yerel depolama, desteklenen ağ konumları ve arşivlerde gezin.</p><div class="tags"><span>LOCAL</span><span>DUAL PANE</span><span>NETWORK</span></div></article>
+    <article class="feature reveal"><span class="feature-number">02</span><div class="feature-symbol">APK</div><h3>APK iş akışı</h3><p>APK dosyalarını inceleme, ayrıştırma, düzenleme, imzalama ve yeniden oluşturma araçları.</p><div class="tags"><span>INSPECT</span><span>REBUILD</span><span>SIGN</span></div></article>
+    <article class="feature reveal"><span class="feature-number">03</span><div class="feature-symbol">{ }</div><h3>Kaynak & kod editörü</h3><p>Metin ve kaynak dosyalarını sözdizimi renklendirme destekli editörde aç; metinleri düzenle ve dosya içeriğini görüntüle.</p><div class="tags"><span>TEXT</span><span>SYNTAX</span><span>HEX</span></div></article>
+    <article class="feature reveal"><span class="feature-number">04</span><div class="feature-symbol">▤</div><h3>Android paket kaynakları</h3><p>AndroidManifest.xml, DEX ve ARSC ile ilişkili inceleme ve düzenleme araçları. Paket içeriğini tek çalışma alanından ele al.</p><div class="tags"><span>MANIFEST</span><span>DEX</span><span>ARSC</span></div></article>
+    <article class="feature reveal"><span class="feature-number">05</span><div class="feature-symbol">ZIP</div><h3>Arşiv desteği</h3><p>ZIP, RAR ve uygulamanın desteklediği diğer arşiv biçimlerinde içerik görüntüle ve dosyalarla çalış.</p><div class="tags"><span>ZIP</span><span>RAR</span><span>7Z / OTHER</span></div></article>
+    <article class="feature reveal"><span class="feature-number">06</span><div class="feature-symbol">↗</div><h3>Ağ depolama</h3><p>FTP/FTPS, WebDAV ve SMB gibi desteklenen ağ protokolleriyle uzak konumları dosya iş akışına dahil et.</p><div class="tags"><span>FTP / FTPS</span><span>WEBDAV</span><span>SMB</span></div></article>
+    <article class="feature reveal"><span class="feature-number">07</span><div class="feature-symbol">▧</div><h3>Medya araçları</h3><p>Görsel, ses ve video dosyaları için uygulamada bulunan medya araçlarını kullan. Desteklenen işlemler dosya türüne göre değişir.</p><div class="tags"><span>IMAGE</span><span>AUDIO</span><span>VIDEO</span></div></article>
+    <article class="feature reveal"><span class="feature-number">08</span><div class="feature-symbol">⌘</div><h3>Ek geliştirici araçları</h3><p>Dosya ve Android geliştirme odaklı yardımcı araçlar; uygulamanın araç merkezinde yer alan desteklenen modüller.</p><div class="tags"><span>TOOLS HUB</span><span>UTILITY</span><span>ANDROID</span></div></article>
+  </div>
 </section>
 
-<section id="indir">
-
-<div class="download">
-
-<div>
-<div class="kicker">AHE MANAGER 1.1.2</div>
-<h2>AHE MANAGER'ı hemen indir.</h2>
-<p>En son sürümü GitHub Releases üzerinden Android cihazına indir.</p>
-<div class="note">Android APK · Sürüm 1.1.2 · AHE TEAM</div>
-</div>
-
-<div class="actions">
-<a class="btn primary"
-href="https://github.com/AHE-TEAM/AHE-Manager/releases/download/1.1.2/AHE.MANAGER_1.1.2.apk">
-↓ APK'yı İndir
-</a>
-
-<a class="btn secondary"
-href="https://github.com/AHE-TEAM/AHE-Manager/releases/tag/1.1.2"
-target="_blank"
-rel="noopener">
-Sürüm Notları ↗
-</a>
-</div>
-
-</div>
+<section class="section" id="project">
+  <div class="section-head reveal">
+    <div><div class="section-tag">02 / PROJECT</div><h2>AHE ekibi tarafından<br>uyarlanmış türev proje.</h2></div>
+    <p>AHE MANAGER, MP Manager açık kaynak projesi temel alınarak Türkçeleştirilmiş ve AHE MODS markasıyla yeniden düzenlenmiştir. Bu sürüm özgün projenin resmî sürümü değildir.</p>
+  </div>
+  <div class="details">
+    <div class="detail-panel reveal">
+      <h3>AHE MANAGER değişiklikleri</h3>
+      <p>Kaynak projeden türetilen sürümde marka, ilk açılış dili ve Türkçe kaynaklar AHE MANAGER kullanımına göre düzenlendi.</p>
+      <ul class="checklist">
+        <li>AHE MANAGER uygulama adı ve marka düzenlemesi</li>
+        <li>İlk açılışta Türkçe kullanım şartları</li>
+        <li>Varsayılan başlangıç dili Türkçe</li>
+        <li>Türkçe arayüz ve çeşitli kaynak metinleri</li>
+        <li>Full ve Lite ürün çeşitleri</li>
+      </ul>
+    </div>
+    <div class="detail-panel reveal" id="source">
+      <h3>Kaynak proje & lisans</h3>
+      <p>Özgün proje ve AHE MANAGER kaynak deposu, inceleme ve lisans bilgileri için aşağıda bağlantılıdır.</p>
+      <div class="project-links">
+        <a class="project-link" href="https://github.com/AbdurazaaqMohammed/MP-Manager" target="_blank" rel="noopener"><span>Özgün MP Manager projesi</span><small>GITHUB ↗</small></a>
+        <a class="project-link" href="https://github.com/AHE-TEAM/AHE-Manager" target="_blank" rel="noopener"><span>AHE MANAGER kaynak kodu</span><small>GITHUB ↗</small></a>
+        <a class="project-link" href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="noopener"><span>GNU GPL v3.0 lisans metni</span><small>LICENSE ↗</small></a>
+      </div>
+      <div class="notice">Özgün geliştirici AbdurazaaqMohammed'dir. AHE MANAGER, özgün geliştirici tarafından desteklendiği veya resmî olarak yayımlandığı anlamına gelmez.</div>
+    </div>
+  </div>
 </section>
 
+<section class="section" id="install">
+  <div class="section-head reveal">
+    <div><div class="section-tag">03 / DOWNLOAD</div><h2>Kur. Aç.<br>Çalışma alanını oluştur.</h2></div>
+    <p>Android APK dosyasını Release sayfasından edinebilirsin. Kurulum sırasında cihazın istediği uygulama yükleme iznini kontrol et.</p>
+  </div>
+  <div class="release">
+    <div class="release-box reveal">
+      <div class="section-tag">CURRENT RELEASE / 1.1.3</div>
+      <h2>AHE MANAGER<br>Android için.</h2>
+      <p>Dosya yönetimi ve APK araçları. Türkçe arayüz, Full / Lite sürüm seçeneği ve AHE TEAM tarafından uyarlanmış çalışma alanı.</p>
+      <div class="release-actions">
+        <a class="btn btn-primary" href="https://github.com/AHE-TEAM/AHE-Manager/releases/download/1.1.3/AHE.MANAGER_1.1.3.apk">↓ APK İNDİR</a>
+        <a class="btn btn-ghost" href="https://github.com/AHE-TEAM/AHE-Manager/releases/tag/1.1.3" target="_blank" rel="noopener">RELEASE NOTLARI ↗</a>
+      </div>
+    </div>
+    <div class="release-meta reveal">
+      <div class="meta-item"><small>APPLICATION</small><strong>AHE MANAGER</strong></div>
+      <div class="meta-item"><small>VERSION</small><strong>1.1.3</strong></div>
+      <div class="meta-item"><small>PACKAGE ID</small><strong>com.ahemanager</strong></div>
+      <div class="meta-item"><small>PLATFORM</small><strong>Android · API 23+</strong></div>
+      <div class="meta-item"><small>VARIANTS</small><strong>Full / Lite</strong></div>
+      <div class="meta-item"><small>LICENSE</small><strong>GNU GPL v3.0</strong></div>
+    </div>
+  </div>
+  <div class="install reveal">
+    <div class="install-step"><b>STEP 01</b><strong>APK dosyasını indir</strong><p>Yukarıdaki indirme bağlantısını kullan veya GitHub Release sayfasını aç.</p></div>
+    <div class="install-step"><b>STEP 02</b><strong>Kurulum iznini onayla</strong><p>Android, dosya yöneticisi ya da tarayıcı için yükleme izni isterse cihaz ayarlarından yönet.</p></div>
+    <div class="install-step"><b>STEP 03</b><strong>Uygulamayı başlat</strong><p>Kurulum tamamlandığında AHE MANAGER'ı açıp kullanım şartları ve uygulama izinlerini incele.</p></div>
+  </div>
+</section>
 </main>
 
 <footer>
-<div class="wrap foot">
-
-<div>
-<b>AHE MANAGER</b><br>
-© <span id="year"></span> AHE MODS.
-Tüm hakları saklıdır.
-</div>
-
-<div>
-MP Manager açık kaynak projesi temel alınmıştır · GPL-3.0
-</div>
-
-</div>
+  <div class="wrap footer-inner">
+    <div><div class="footer-brand">AHE <span>MANAGER</span></div><div class="footer-copy">AHE TEAM · AHE MODS</div></div>
+    <div class="footer-copy">MP Manager açık kaynak projesi temel alınmıştır · GPL-3.0</div>
+    <nav class="footer-nav"><a href="https://github.com/AHE-TEAM/AHE-Manager">SOURCE</a><a href="https://www.gnu.org/licenses/gpl-3.0.html">LICENSE</a><a href="#top">TOP ↑</a></nav>
+  </div>
 </footer>
-
 <script>
-document.getElementById('year').textContent =
-new Date().getFullYear();
+const menuButton=document.getElementById('menuToggle');
+const menu=document.getElementById('navlinks');
+menuButton.addEventListener('click',()=>{
+  const opened=menu.classList.toggle('open');
+  menuButton.textContent=opened?'MENÜ −':'MENÜ +';
+  menuButton.setAttribute('aria-expanded',opened?'true':'false');
+});
+menu.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
+  menu.classList.remove('open');menuButton.textContent='MENÜ +';menuButton.setAttribute('aria-expanded','false');
+}));
+// Enable reveal animation only after the observer is available; otherwise text stays visible.
+if('IntersectionObserver' in window){
+  try{
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){entry.target.classList.add('in');observer.unobserve(entry.target)}
+      });
+    },{threshold:.12});
+    document.body.classList.add('js-reveal');
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+  }catch(error){
+    document.body.classList.remove('js-reveal');
+    document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+  }
+}else{
+  document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+}
+const year=document.getElementById('year');
+if(year) year.textContent=new Date().getFullYear();
 </script>
-
 </body>
 </html>
